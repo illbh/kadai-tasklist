@@ -3,8 +3,9 @@ class TasksController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
-    @tasks = current_user.tasks.order('created_at DESC')
-    # @tasks = Task.all
+    if logged_in?
+      @tasks = current_user.tasks.order('created_at DESC')
+    end
   end
 
   def show

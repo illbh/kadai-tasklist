@@ -9,11 +9,8 @@
           <span class="icon-bar"></span>
         </button>
         
-        <% if logged_in? %>
-          <span class="navbar-brand"><%= link_to 'タスクリスト', tasks_path %></span>
-        <% else %>
-          <a class="navbar-brand" href="/">タスクリスト</a>
-        <% end %>
+        <span class="navbar-brand"><%= link_to 'タスクリスト', root_url %></span>
+
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">

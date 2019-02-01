@@ -1,7 +1,16 @@
 <!-- tasks  -->
-<h1>タスクリスト</h1>
-<ul>
-  <% @tasks.each do |task| %>
-    <li><%= link_to task.id, task %> : <%= task.content %>：<%= task.status %></li>
-  <% end %>
-</ul>
+<% if logged_in? %>
+  <h1>タスクリスト</h1>
+  <ul>
+    <% @tasks.each do |task| %>
+      <li><%= link_to task.id, task %> : <%= task.content %>：<%= task.status %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <div class="center jumbotron">
+    <div class="text-center">
+      <h1>タスク管理をしよう</h1>
+      <%= link_to '会員登録はこちら', signup_path, class: 'btn btn-lg btn-primary' %>
+    </div>
+  </div>
+<% end %>
