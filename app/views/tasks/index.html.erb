@@ -1,6 +1,5 @@
 <!-- tasks  -->
 <h1>タスクリスト</h1>
-
 <ul>
   <% @tasks.each do |task| %>
     <li><%= link_to task.id, task %> : <%= task.content %>：<%= task.status %></li>

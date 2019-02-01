@@ -1,12 +1,6 @@
-<% if logged_in? %>
-  <div class="center jumbotron">
-    <p><%= current_user.name %>さんの<%= link_to 'タスク一覧へ', users_path %></p>
-  </div>
-<% else %>
   <div class="center jumbotron">
     <div class="text-center">
       <h1>タスク管理をしよう</h1>
       <%= link_to '会員登録はこちら', signup_path, class: 'btn btn-lg btn-primary' %>
     </div>
   </div>
-<% end %>
