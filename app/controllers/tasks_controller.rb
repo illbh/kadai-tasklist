@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only:[:show, :edit, :update, :destroy]
-  before_action :correct_user, only: [:edit, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
     @tasks = current_user.tasks.order('created_at DESC')
@@ -26,8 +26,9 @@ class TasksController < ApplicationController
       render :new
     end
   end
-
+  
   def edit
+    @task = Task.find(params[:id])
   end
 
   def update
