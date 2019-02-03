@@ -1,22 +1,17 @@
 class TasksController < ApplicationController
   before_action :set_task, only:[:show, :edit, :update, :destroy]
+  before_action :require_user_logged_in, only: [:index, :show, :new, :edit]
   before_action :correct_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    if logged_in?
-      @tasks = current_user.tasks.order('created_at DESC')
-    end
+    @tasks = current_user.tasks.order('created_at DESC')
   end
 
   def show
   end
 
   def new
-    if logged_in?
-      @task = Task.new
-    else
-      redirect_to root_url
-    end
+    @task = Task.new
   end
 
   def create
@@ -70,5 +65,4 @@ class TasksController < ApplicationController
       redirect_to root_url
     end
   end
-
 end
